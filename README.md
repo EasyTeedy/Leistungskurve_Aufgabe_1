@@ -5,5 +5,4 @@ Sachen machen Sachen die Sachen halt so machen. :3
 
 Gruppe Team: 
 
-Cedric Rissi
-Marven Otto
+Cedric Rissi; Marven Otto;
