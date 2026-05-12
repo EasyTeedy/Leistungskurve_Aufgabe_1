@@ -41,6 +41,8 @@ Sortierung: Die Werte werden mit einem implementierten Bubble-Sort-Algorithmus a
 Visualisierung: Eine Grafik mit logarithmischer X-Achse (Zeit) wird erstellt und gespeichert.
 
 
+![Leistungskurve](figures/power_curve.png)
+
 Gruppe Team: 
 
 Cedric Rissi; Marven Otto
