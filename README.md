@@ -6,3 +6,6 @@ Sachen machen Sachen die Sachen halt so machen. :3
 Gruppe Team: 
 
 Cedric Rissi; Marven Otto
+
+main.py ausführen, erstellt ein png im ordener /data/fugures
+

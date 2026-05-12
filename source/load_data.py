@@ -7,5 +7,4 @@ def load_data(file_path):
                         filling_values=0, encoding='utf-8-sig')
     
     # Packt jede Spalte in eine Variable im Dictionary
-    # Zugriff dann via data_dict['PowerOriginal'] etc.
     return {name: data[name] for name in data.dtype.names}
