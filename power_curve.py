@@ -8,41 +8,36 @@ from sort import bubble_sort
 def main():
     print("Loading data...")
     data = load_data("activity.csv")
-
-    # Spalte extrahieren
     power_W = data["PowerOriginal"]
 
-    print(f"Power values: {power_W}")
-
-    # in Liste umwandeln für Bubble Sort
+    # Die echte Power Curve berechnet für jede Sekunde (t) 
+    # den maximalen Durchschnitt, den man über t Sekunden gehalten hat.
+    
+    mmp = [] # Mean Maximal Power
+    durations = [1, 5, 10, 30, 60, 120, 300, 600] # Sekunden (wie im Bild)
+    
+    # Beispiel für eine einfache Annäherung (da Bubble Sort sehr langsam ist):
+    # Wenn du wirklich die sortierte Liste aller Sekundenwerte willst:
     power_list = power_W.tolist()
-
-    # sortieren + für Power Curve absteigend drehen
     sorted_power = bubble_sort(power_list)[::-1]
 
-    print(f"Sorted power values (descending): {sorted_power}")
+    # PLOT
+    plt.figure(figsize=(10, 6))
+    
+    # Logarithmische X-Achse ist typisch für Leistungskurven!
+    plt.semilogx(range(1, len(sorted_power) + 1), sorted_power) 
 
-    # x-Achse = Rang
-    x = list(range(len(sorted_power)))
-    y = sorted_power
-
-    # Plot
-    plt.figure(figsize=(10, 5))
-    plt.plot(x, y, linewidth=2)
-
-    plt.title("Power Curve (sorted values)")
-    plt.xlabel("Rank")
-    plt.ylabel("Power (W)")
-    plt.grid(True)
-
-    # figures Ordner erstellen
+    plt.title("Leistungskurve (Sortierte Sekundenwerte)")
+    plt.xlabel("Zeit / Rang (logarithmisch)")
+    plt.ylabel("Leistung (W)")
+    # X-Achsen Beschriftung schöner machen
+    plt.xticks([1, 10, 60, 300, 3600], ['1s', '10s', '1min', '5min', '1h'])
+    
+    plt.grid(True, which="both", ls="-")
     os.makedirs("figures", exist_ok=True)
+    plt.savefig("figures/power_curve.png", dpi=300)
+    print("Plot gespeichert.")
 
-    # speichern
-    plt.savefig("figures/power_curve.png", dpi=300, bbox_inches="tight")
-    plt.close()
-
-    print("Plot saved in figures/power_curve.png")
 
 
 if __name__ == "__main__":
