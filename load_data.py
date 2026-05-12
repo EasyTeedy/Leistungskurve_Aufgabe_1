@@ -29,4 +29,3 @@ if __name__ == "__main__":
     print(f"Power values: {power_W}")
     sorted_power_W = bubble_sort(power_W)
     print(f"Sorted power values (descending): {sorted_power_W[::-1]}")
-  
